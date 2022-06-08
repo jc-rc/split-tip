@@ -13,13 +13,126 @@
     <!-- FontAwsome Iconos -->
     <script src="https://kit.fontawesome.com/0a8f473504.js" crossorigin="anonymous"></script>
     <!-- Título -->
-    <title>Título</title>
+    <title>Split-Tip</title>
     <!-- Descripción -->
     <meta name="description" content="Tu calculadora de propinas. | ©2022 | jcrcmaker">
 </head>
 
 <body>
+    <main class="container p-4" style="max-width: 600px;">
+        <header class="row">
+            <div class="col d-flex justify-content-between">
+                <h1><i class="fa-solid fa-money-check-dollar text-success"></i> Split-Tip</h1>
 
+                <div>
+                    <button class="btn btn-outline-secondary me-2"><i class="fa-solid fa-circle-info"></i></button>
+                    <button class="btn btn-outline-danger"><i class="fa-solid fa-xmark"></i> Clear</button>
+                </div>
+            </header>
+           
+        </div>
+
+        <!-- NAVIGATION -->
+        <nav class="text-center mb-3">
+            <hr>
+            <div class="col text-start">
+                <h4>Enter Data:</h4>
+            </div>
+            <div class="row justify-content-sm-center mb-4">
+                <div class="col-12 col-sm-4 ">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" >$</span>
+                        <input id="ipt-bill" type="number" class="form-control" placeholder="Bill" aria-label="Total"
+                            aria-describedby="basic-addon1" min="0" pattern="\d*">
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4 ">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" >%</span>
+                        <input id="ipt-tip" type="number" class="form-control" placeholder="Tip" aria-label="Tip"
+                            aria-describedby="basic-addon1" min="0" pattern="\d*">
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4 ">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" >#</span>
+                        <input id="ipt-customer" type="number" class="form-control" placeholder="Customers" aria-label="Customers"
+                            aria-describedby="basic-addon1" min="0" pattern="\d*">
+                    </div>
+                </div>
+                <div class="row-cols-1" >
+                    <button id="btn-calc" class="btn btn-secondary">Calculate</button>
+                </div>
+            </div>
+            <hr>
+            <div id="div-nav" class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="btnradio1">Equal Split</label>
+              
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-dark" for="btnradio2">Custom Split</label>
+              
+                
+              </div>
+              
+        </nav>
+
+        <!-- EQUAL SPLIT -->
+        <section id="div-equal-split">
+            
+            <div class="row mb-3">
+                <div class="col">
+                    <h3>Equal Split</h3>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- CUSTOM SPLIT -->
+        <section id="div-custom-split">
+            <div class="row mb-3">
+                <div class="col">
+                    <h3>Custom Split</h3>
+                </div>
+            </div>
+            <div id="customers"class="row justify-content-sm-center align-content-baseline">
+
+               
+
+
+            </div>
+        </section>
+        <!-- RESULTS EQUAL -->
+        <section class="my-3" id="div-results-equal">
+            <hr>
+            <div class="row">
+                <div class="col-6">
+                    <h4>Total: <span id="txt-total-equal">$$$</span></h4>
+                    
+                </div>
+                <div class="col-6">
+                    <h4 class="fw-light">(Tip: <span id="txt-tip-equal">$$$</span>)</h4>
+                </div>
+                <div class="col-12">
+                    <hr>
+                    <h4>Contribution per Customer:</h4>
+                    <p id="txt-percust-equal" class="h4 fw-normal">$$$</p>
+                </div>
+            </div>
+
+        </section>
+        <!-- RESULTS CUSTOM -->
+        <section class="my-3" id="div-results-custom">
+            <hr>
+            <div class="row">
+                <div class="col-6">
+                    <h4>Remaining: <span id="txt-remain-custom">$$$</span></h4>
+                    
+                </div>
+            </div>
+
+        </section>
+    </main>
 
 
     <!-- Archivos JS Usuario -->
