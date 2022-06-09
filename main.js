@@ -28,84 +28,93 @@ divResultsCustom.style.display = "none";
 
 
 /////
- var bill
- var tip
- var custCount
 
+var bill 
+var tip 
+var custCount 
+
+var total 
+var tipCalc 
+var perCustEqual 
+var remainingCustom 
 
 /////
 
-btnCalc.onclick = ()=>{
+btnCalc.onclick = () => {
 
-    if(iptBill.value != 0  && iptCustomer != 0){
+    if (iptBill.value != 0 && iptCustomer != 0) {
 
-        bill=iptBill.value;
-        tip=(iptTip.value)/100;
+        bill = iptBill.value;
+        tip = (iptTip.value) / 100;
         custCount = iptCustomer.value;
+
+        total = (bill * (1 + tip))
+        tipCalc = bill * tip
+        perCustEqual = total / custCount
+        remainingCustom = total;
 
         console.log(bill, tip, custCount);
 
-        txtTotalEqual.innerHTML = "$" + (bill * (1+tip)).toFixed(2)
-        txtTipEqual.innerHTML = `$${(bill*tip).toFixed(2)}`
-        txtPerCustEqual.innerHTML = `$${(((bill * (1+tip)))/custCount).toFixed(2)}`
+        txtTotalEqual.innerHTML = "$" + total.toFixed(2)
+        txtTipEqual.innerHTML = `$${tipCalc.toFixed(2)}`
+        txtPerCustEqual.innerHTML = `$${perCustEqual.toFixed(2)}`
+        txtRemainCustom.innerHTML = `$${remainingCustom.toFixed(2)}`
 
         ShowDiv(divNav)
-        
+        btnNavEqual.click()
+
         customers.innerHTML = "";
 
-        for(let i=0; i<iptCustomer.value; i++){
+        for (let i = 0; i < iptCustomer.value; i++) {
             customers.insertAdjacentHTML("beforeend", `
 
-            <div class="col-sm-6">
-            <div class="input-group">
-                <span class="input-group-text">Customer ${i+1}</span>
-                <input id="ipt-contribution-${i+1}" type="number" class="form-control" placeholder="Contribution" aria-label="Contribution"
-                    aria-describedby="basic-addon1" min="0" pattern="\d*">
+            <div class="col-12 mx-auto my-2">
+                <div class="input-group">
+                <span class="input-group-text">Customer ${i + 1}</span>
+                <input oninput="customFunc(this)" id="ipt-contribution-${i + 1}" type="number" class="form-control" placeholder="${perCustEqual.toFixed(2)}" aria-label="Contribution" aria-describedby="basic-addon1" min="0" pattern="\d*">
+                </div>
             </div>
-        </div>
-        <div class="col-6 col-sm-3 text-sm-center text-end">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ipt-bill-${i+1}"
-                    value="option1">
-                <label class="form-check-label" for="ipt-bill-${i+1}">Cover Bill</label>
-            </div>
-        </div>
-        <div class="col-6 col-sm-3 text-sm-center text-start mb-3 mb-sm-3">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="ipt-tip-${i+1}"
-                    value="option2">
-                <label class="form-check-label" for="ipt-tip-${i+1}">Cover Tip</label>
-            </div>
-        </div>
+    
             `)
         }
     }
-    else{
-        alert("Please fill every field.")
+    else {
+        alert("Please fill required (*) fields.")
     }
-    
+
 }
 
 
 
-btnNavEqual.onclick = ()=>{
+btnNavEqual.onclick = () => {
     HideDIv(divCustom)
     HideDIv(divResultsCustom)
     ShowDiv(divEqual)
     ShowDiv(divResultsEqual)
 }
 
-btnNavCustom.onclick = ()=>{
+btnNavCustom.onclick = () => {
     HideDIv(divEqual)
     HideDIv(divResultsEqual)
     ShowDiv(divCustom)
     ShowDiv(divResultsCustom)
 }
 
-function HideDIv(e){
+function customFunc(e){
+    
+    let tempRemain =  e.value;
+    if(remainingCustom>=0){
+        remainingCustom -= tempRemain;
+        // txtRemainCustom.innerHTML = `$${remainingCustom.toFixed(2)}`
+        console.log(e.id, tempRemain, remainingCustom)
+        }
+    
+}
+
+function HideDIv(e) {
     e.style.display = "none"
 }
 
-function ShowDiv(e){
+function ShowDiv(e) {
     e.style.display = "block"
 }

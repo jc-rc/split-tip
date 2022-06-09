@@ -41,7 +41,7 @@
             <div class="row justify-content-sm-center mb-4">
                 <div class="col-12 col-sm-4 ">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" >$</span>
+                        <span class="input-group-text" >$ <span class="text-danger">*</span></span>
                         <input id="ipt-bill" type="number" class="form-control" placeholder="Bill" aria-label="Total"
                             aria-describedby="basic-addon1" min="0" pattern="\d*">
                     </div>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-12 col-sm-4 ">
                     <div class="input-group mb-3">
-                        <span class="input-group-text" >#</span>
+                        <span class="input-group-text" >#<span class="text-danger">*</span></span>
                         <input id="ipt-customer" type="number" class="form-control" placeholder="Customers" aria-label="Customers"
                             aria-describedby="basic-addon1" min="0" pattern="\d*">
                     </div>
@@ -67,10 +67,10 @@
             <hr>
             <div id="div-nav" class="btn-group" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="btnradio1">Equal Split</label>
+                <label class="btn btn-outline-primary" for="btnradio1"><i class="fa-solid fa-scale-balanced"></i> Equal</label>
               
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                <label class="btn btn-outline-dark" for="btnradio2">Custom Split</label>
+                <label class="btn btn-outline-dark" for="btnradio2"><i class="fa-solid fa-scale-unbalanced-flip"></i> Custom</label>
               
                 
               </div>
@@ -90,7 +90,7 @@
 
         <!-- CUSTOM SPLIT -->
         <section id="div-custom-split">
-            <div class="row mb-3">
+            <div class="row mb-1">
                 <div class="col">
                     <h3>Custom Split</h3>
                 </div>
@@ -107,12 +107,11 @@
             <hr>
             <div class="row">
                 <div class="col-6">
-                    <h4>Total: <span id="txt-total-equal">$$$</span></h4>
                     
-                </div>
-                <div class="col-6">
                     <h4 class="fw-light">(Tip: <span id="txt-tip-equal">$$$</span>)</h4>
+                    <h4>Total: <span id="txt-total-equal">$$$</span></h4>
                 </div>
+                
                 <div class="col-12">
                     <hr>
                     <h4>Contribution per Customer:</h4>
@@ -126,7 +125,7 @@
             <hr>
             <div class="row">
                 <div class="col-6">
-                    <h4>Remaining: <span id="txt-remain-custom">$$$</span></h4>
+                    <h4><span id="txt-remaining">Remaining:</span> <span id="txt-remain-custom">$$$</span></h4>
                     
                 </div>
             </div>

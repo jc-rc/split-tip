@@ -1,3 +1,6 @@
+input, .input-group-text{
+    height: 30px;
+}
 .btn{
-    box-shadow: 3px 3px  black;
+    box-shadow: 2px 2px  black;
 }
